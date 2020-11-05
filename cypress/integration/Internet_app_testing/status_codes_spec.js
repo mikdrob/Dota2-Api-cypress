@@ -34,4 +34,10 @@ describe("Form authentication page", () => {
             });
         cy.url().should("eq", Cypress.config().baseUrl + "status_codes");
     });
+
+    it('should return a 200 status_code', function () {
+      cy.get('a[href*="http://elementalselenium.com/"]').click();
+      cy.get('a[href*="http://elementalselenium.com/"]').should('have.attr', 'target', '_blank');
+    });
+
 });
