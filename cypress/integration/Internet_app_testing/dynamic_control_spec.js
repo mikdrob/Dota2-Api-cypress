@@ -1,4 +1,4 @@
-describe("Form authentication page", () => {
+describe("Dynamic Control", () => {
     beforeEach(() => {
         cy.visit("/dynamic_controls");
     });
@@ -20,5 +20,6 @@ describe("Form authentication page", () => {
         cy.wait(5000);
         cy.get('#input-example > button').contains('Disable').click();
     });
+
 
 });
