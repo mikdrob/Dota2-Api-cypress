@@ -1,4 +1,6 @@
-Team Members:
+##UI Automation with Cypress
+Web Application under test: https://the-internet.herokuapp.com/
+#Team Members
 Mikhail Drobyshev<br>
 Shpëtim Ibrani<br>
 Florian Shllaku<br>
