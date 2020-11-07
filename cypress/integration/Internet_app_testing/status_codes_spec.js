@@ -32,13 +32,13 @@ describe("Form authentication page", () => {
     });
 
     it('should return 200 status codes', function () {
-        cy.request({url: '/status_codes/200', failOnStatusCode: false}).then((response) => {
+        cy.request({url: '/status_codes/200'}).then((response) => {
             expect(response.status).to.eq(200)
         })
     });
 
     it('should return 301 status codes', function () {
-        cy.request({url: '/status_codes/301', failOnStatusCode: false}).then((response) => {
+        cy.request({url: '/status_codes/301'}).then((response) => {
             expect(response.status).to.eq(301)
         })
     });
