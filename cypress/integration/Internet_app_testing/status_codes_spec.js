@@ -34,12 +34,18 @@ describe("Form authentication page", () => {
     it('should return 200 status codes', function () {
         cy.request({url: '/status_codes/200'}).then((response) => {
             expect(response.status).to.eq(200)
+            expect(response.status).to.not.eq(301)
+            expect(response.status).to.not.eq(404)
+            expect(response.status).to.not.eq(500)
         })
     });
 
     it('should return 301 status codes', function () {
         cy.request({url: '/status_codes/301'}).then((response) => {
             expect(response.status).to.eq(301)
+            expect(response.status).to.not.eq(200)
+            expect(response.status).to.not.eq(404)
+            expect(response.status).to.not.eq(500)
         })
     });
     
@@ -47,12 +53,18 @@ describe("Form authentication page", () => {
     it('should return 404 status codes', function () {
         cy.request({url: 'status_codes/404', failOnStatusCode: false}).then((response) => {
             expect(response.status).to.eq(404)
+            expect(response.status).to.not.eq(301)
+            expect(response.status).to.not.eq(200)
+            expect(response.status).to.not.eq(500)
         })
     });
 
     it('should return 500 status codes', function () {
         cy.request({url: '/status_codes/500', failOnStatusCode: false}).then((response) => {
             expect(response.status).to.eq(500)
+            expect(response.status).to.not.eq(301)
+            expect(response.status).to.not.eq(404)
+            expect(response.status).to.not.eq(200)
         })
     });
 
