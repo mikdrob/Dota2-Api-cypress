@@ -1,11 +1,11 @@
 Team Members:
-Mikhail Drobyshev
-Shpëtim Ibrani
-Florian Shllaku
-Joyon Ahmed Ruhul Quddos
-
-To run project:
-Install cypress
-https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements
-
+Mikhail Drobyshev<br>
+Shpëtim Ibrani<br>
+Florian Shllaku<br>
+Joyon Ahmed Ruhul Quddos<br>
+<br>
+To run project:<br>
+Install cypress<br>
+https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements<br>
+<br>
 Download the project and open it in installed cypress. Click "Run all specs"
