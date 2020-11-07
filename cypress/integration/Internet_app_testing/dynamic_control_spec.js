@@ -1,28 +1,29 @@
 describe("Dynamic Control", () => {
-    beforeEach(() => {
+    before(() => {
         cy.visit("/dynamic_controls");
-    });
-
-    it('To tic the check box',function(){
-       cy.get('[type="checkbox"]').check()
-       cy.get('[type="checkbox"]').uncheck() 
     });
 
     it('press romove Button',function(){
         cy.get('#checkbox-example > button').contains('Remove').click();
-        cy.wait(5000);
-        cy.get('#checkbox-example > button').contains('Add');
+        cy.get('#checkbox').should('not.exist');
 
+    });
+
+    it('press Add Button',function(){
+        cy.get('#checkbox-example > button').contains('Add').click()
+        cy.get('#checkbox').should('exist');
     });
 
     it('press Enable Button',function(){
         cy.get('#input-example > button').contains('Enable').click();
-        cy.wait(5000);
-        cy.get('#input-example > button').contains('Disable');
+        cy.get('input[type="text"]').should('not.be.disabled');
     });
-    it('check status code',function(){
-        cy.get('get').should('have.property', 'status', 200)
+
+    it('press Disable Button',function(){
+        cy.get('#input-example > button').contains('Disable').click();
+        cy.get('input[type="text"]').should('be.disabled');
     });
+
 
 
 });

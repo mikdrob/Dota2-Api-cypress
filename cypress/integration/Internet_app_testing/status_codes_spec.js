@@ -17,7 +17,7 @@ describe("Form authentication page", () => {
             const text = $div.text()
 
             expect(text).to.include('200')
-            eSxpect(text).not.to.include('301')
+            expect(text).not.to.include('301')
             expect(text).not.to.include('404')
             expect(text).not.to.include('500')
         })
