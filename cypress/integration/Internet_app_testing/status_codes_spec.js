@@ -1,5 +1,5 @@
 describe("Form authentication page", () => {
-    beforeEach(() => {
+    before(() => {
         cy.visit("/status_codes");
     });
 
@@ -11,8 +11,7 @@ describe("Form authentication page", () => {
         cy.url().should("eq", Cypress.config().baseUrl + "status_codes/200");
     });
 
-    it('should return a 200 status_code', function () {
-        cy.get('a[href*="status_codes/200"]').click()
+    it('checking content of /status_codes/200', function () {
         cy.get('div').should(($div) => {
             const text = $div.text()
 
@@ -23,11 +22,8 @@ describe("Form authentication page", () => {
         })
     });
 
+
     it('should return to main page with a list of status codes', function () {
-        cy.get("ul > li:nth-child(2) > a").should('have.attr', 'href')
-            .then((href) => {
-                cy.visit(href)
-            });
         cy.get("p > a").should('have.attr', 'href')
             .then((href) => {
                 cy.visit(href)
@@ -35,9 +31,29 @@ describe("Form authentication page", () => {
         cy.url().should("eq", Cypress.config().baseUrl + "status_codes");
     });
 
-    it('Testing Elemental Selenium link', function () {
-      cy.get('a[href*="http://elementalselenium.com/"]').click();
-      cy.get('a[href*="http://elementalselenium.com/"]').should('have.attr', 'target', '_blank');
+    it('should return 200 status codes', function () {
+        cy.request({url: '/status_codes/200', failOnStatusCode: false}).then((response) => {
+            expect(response.status).to.eq(200)
+        })
+    });
+
+    it('should return 301 status codes', function () {
+        cy.request({url: '/status_codes/301', failOnStatusCode: false}).then((response) => {
+            expect(response.status).to.eq(301)
+        })
+    });
+    
+
+    it('should return 404 status codes', function () {
+        cy.request({url: 'status_codes/404', failOnStatusCode: false}).then((response) => {
+            expect(response.status).to.eq(404)
+        })
+    });
+
+    it('should return 500 status codes', function () {
+        cy.request({url: '/status_codes/500', failOnStatusCode: false}).then((response) => {
+            expect(response.status).to.eq(500)
+        })
     });
 
 });
