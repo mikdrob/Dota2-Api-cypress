@@ -11,14 +11,17 @@ describe("Dynamic Control", () => {
     it('press romove Button',function(){
         cy.get('#checkbox-example > button').contains('Remove').click();
         cy.wait(5000);
-        cy.get('#checkbox-example > button').contains('Add').click();
+        cy.get('#checkbox-example > button').contains('Add');
 
     });
 
     it('press Enable Button',function(){
         cy.get('#input-example > button').contains('Enable').click();
         cy.wait(5000);
-        cy.get('#input-example > button').contains('Disable').click();
+        cy.get('#input-example > button').contains('Disable');
+    });
+    it('check status code',function(){
+        cy.get('get').should('have.property', 'status', 200)
     });
 
 
